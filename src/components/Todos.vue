@@ -7,11 +7,12 @@
   </header>
   <section class="main" v-show="todos.length">
     <ul class="todo-list">
-      <li v-for="todo in todos" class="todo" :key="todo.id" :class="{'completed': todo.completed}">
+      <li v-for="todo in todos" class="todo" :key="todo.id" :class="{'completed': todo.complete}">
         <div class="view">
-          <input class="toggle" type="checkbox" v-model="todo.completed">
-          <label>{{ todo.title }}</label>
-          <button class="destroy" @click="removeTodo(todo)"></button>
+          <input class="toggle" type="checkbox"
+            :value="todo.complete" @click="toggleComplete({id:todo.id})">
+          <label>{{ todo.content }}</label>
+          <button class="destroy" @click="removeTodo({id:todo.id})"></button>
         </div>
       </li>
     </ul>
@@ -20,32 +21,39 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
+import * as types from '../store/mutation-types'
+
 export default {
   name: 'todos',
   data() {
     return {
-      newTodo: '',
-      todos: []
+      newTodo: ''
+    }
+  },
+
+  computed: {
+    todos (){
+      return this.$store.state.todos.allTodos;
     }
   },
 
   methods: {
     addTodo: function() {
-      var value = this.newTodo && this.newTodo.trim()
-      console.log(value);
-      if (!value) {
+      var content = this.newTodo && this.newTodo.trim()
+      if (!content) {
         return
       }
-      this.todos.push({
-        title: value,
-        completed: false
+      this.$store.commit(types.ADD_NEW_TODO, {
+        content
       })
       this.newTodo = ''
     },
 
-    removeTodo: function(todo) {
-      this.todos.splice(this.todos.indexOf(todo), 1)
-    },
+    ...mapMutations({
+      removeTodo: types.DELETE_TODO,
+      toggleComplete: types.TOGGLE_COMPLETE
+    })
   },
 }
 </script>
@@ -94,7 +102,7 @@ export default {
         font-weight: 100;
         text-align: center;
         color: rgba(175, 47, 47, 0.2);
-        margin:0;
+        margin: 0;
     }
 
 }

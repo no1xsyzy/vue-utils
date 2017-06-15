@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Routing from './components/Routing.vue'
 import Homepage from './components/Homepage.vue'
 import Todos from './components/Todos.vue'
+import store from './store'
 
 import style from "./assets/main.css"
 
@@ -19,12 +21,9 @@ const router = new VueRouter({
   ]
 })
 
-console.log(router);
-
 const app=new Vue({
   el:'#app',
   router,
+  store,
   template: '<router-view></router-view>'
 })
-
-console.log(app);

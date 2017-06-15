@@ -13,11 +13,7 @@
 
 <script>
 export default {
-  name: 'routing',
-  data () {
-    return {
-    }
-  }
+  name: 'routing'
 }
 </script>
 
