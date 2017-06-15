@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import * as types from '../store/mutation-types'
 
 export default {
@@ -32,11 +32,9 @@ export default {
     }
   },
 
-  computed: {
-    todos (){
-      return this.$store.state.todos.allTodos;
-    }
-  },
+  computed: mapGetters({
+    todos: "allTodos",
+  }),
 
   methods: {
     addTodo: function() {

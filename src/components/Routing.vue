@@ -7,7 +7,7 @@
         <!-- <li><router-link to="/users">Users</router-link></li> -->
       </ul>
     </nav>
-    <router-view></router-view>
+    <router-view class="mainContent"></router-view>
   </div>
 </template>
 
@@ -25,6 +25,11 @@ export default {
 
   nav {
     height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 
     ul {
       list-style: none;
@@ -49,6 +54,12 @@ export default {
         }
       }
     }
+  }
+
+  .mainContent {
+    position: relative;
+    top:50px;
+    width:100%;
   }
 }
 </style>
