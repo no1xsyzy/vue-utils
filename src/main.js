@@ -12,12 +12,8 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   routes: [
-    { path: '/', component: Routing,
-      children: [
-        { path: '', component: Homepage },
-        { path: 'todos', component: Todos },
-      ]
-    }
+    { path: '/', component: Homepage },
+    { path: '/todos', component: Todos },
   ]
 })
 
@@ -25,5 +21,5 @@ const app=new Vue({
   el:'#app',
   router,
   store,
-  template: '<router-view></router-view>'
+  render: h => h(Routing)
 })
