@@ -11,11 +11,11 @@ const getters = {
 const actions = {}
 
 const mutations = {
-  [types.ADD_NEW_TODO](state, {content}) {
+  [types.TODO__ADD_NEW_TODO](state, {content}) {
     state.allTodos.push({content, complete: false, id: new Date().getTime(),})
   },
 
-  [types.DELETE_TODO](state, {id}) {
+  [types.TODO__DELETE_TODO](state, {id}) {
     state.allTodos.forEach((v, i) => {
       if (v.id === id) {
         state.allTodos.splice(i, 1)
@@ -23,7 +23,7 @@ const mutations = {
     })
   },
 
-  [types.TOGGLE_COMPLETE](state, {id}) {
+  [types.TODO__TOGGLE_COMPLETE](state, {id}) {
     state.allTodos.forEach((v, i) => {
       if (v.id === id) {
         state.allTodos.splice(i, 1, {

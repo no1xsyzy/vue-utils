@@ -4,6 +4,7 @@
       <ul>
         <router-link tag="li" to="/">Homepage</router-link>
         <router-link tag="li" to="/todos">Todos</router-link>
+        <router-link tag="li" to="/register">Register</router-link>
         <!-- <li><router-link to="/users">Users</router-link></li> -->
       </ul>
     </nav>

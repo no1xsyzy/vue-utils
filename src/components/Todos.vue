@@ -42,15 +42,15 @@ export default {
       if (!content) {
         return
       }
-      this.$store.commit(types.ADD_NEW_TODO, {
+      this.$store.commit(types.TODO__ADD_NEW_TODO, {
         content
       })
       this.newTodo = ''
     },
 
     ...mapMutations({
-      removeTodo: types.DELETE_TODO,
-      toggleComplete: types.TOGGLE_COMPLETE
+      removeTodo: types.TODO__DELETE_TODO,
+      toggleComplete: types.TODO__TOGGLE_COMPLETE
     })
   },
 }

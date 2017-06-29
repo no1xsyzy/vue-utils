@@ -2,8 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Routing from './components/Routing.vue'
-import Homepage from './components/Homepage.vue'
-import Todos from './components/Todos.vue'
+const Homepage = resolve => require(['./components/Homepage.vue'], resolve)
+const Todos = resolve => require(['./components/Todos.vue'], resolve)
+const Register = resolve => require(['./components/Register.vue'], resolve)
 import store from './store'
 
 import style from "./assets/main.css"
@@ -14,6 +15,7 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: Homepage },
     { path: '/todos', component: Todos },
+    { path: '/register', component: Register },
   ]
 })
 
