@@ -1,6 +1,6 @@
-# todo-list
+# vue-utils
 
-> A Vue.js demo of todo list.
+> A [Vue.js](https://vuejs.org) components demo.
 
 ## Build Setup
 
@@ -15,4 +15,6 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Online Demo
+
+<http://vue.inqb.ga>
