@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "worktree": "git worktree ../vue-utils-dist gh-pages",
+    "worktree": "git worktree add ../vue-utils-dist gh-pages",
     "build": "shx rm -rf ../vue-utils-dist/dist && shx cp index.html ../vue-utils-dist/index.html && cross-env NODE_ENV=production webpack --progress --hide-modules",
     "webpackinfo": "which webpack && webpack -v",
     "wdsinfo": "which webpack-dev-server && webpack-dev-server -v"
